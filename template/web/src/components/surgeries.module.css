@@ -1,0 +1,30 @@
+.dots {
+  position: absolute;
+}
+
+.dotsDecor1 {
+  left: -40px; top: 150px;
+}
+
+.dotsDecor2 {
+  right: -60px;
+  top: -225px;
+}
+.dotsDecor3 {
+  right: 30%;
+  top: 200px;
+}
+
+.surgeries {
+  padding: var(--paddingall);
+  padding-top: 37px;
+  background-color: #0E0519;
+  /* opacity: 0.9999999; */
+}
+
+.surgeriesHolder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}

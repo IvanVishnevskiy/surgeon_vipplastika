@@ -5,19 +5,20 @@ const {isFuture,parseISO} = require('date-fns')
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-async function createProjectPages (graphql, actions) {
-  const {createPage} = actions
+async function createSurgeryPages (graphql, actions) {
+  const { createPage } = actions
   const result = await graphql(`
     {
-      allSanitySampleProject(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}) {
-        edges {
-          node {
-            id
-            publishedAt
-            slug {
-              current
+      allSanitySurgeryType {
+        nodes {
+          title
+          id
+          desc {
+            children {
+              text
             }
           }
+          link
         }
       }
     }
@@ -25,23 +26,55 @@ async function createProjectPages (graphql, actions) {
 
   if (result.errors) throw result.errors
 
-  const projectEdges = (result.data.allSanitySampleProject || {}).edges || []
+  const surgeryNodes = (result.data.allSanitySurgeryType || {}).nodes || []
 
-  projectEdges
-    .filter(edge => !isFuture(parseISO(edge.node.publishedAt)))
-    .forEach(edge => {
-      const id = edge.node.id
-      const slug = edge.node.slug.current
-      const path = `/project/${slug}/`
-
+  surgeryNodes
+    .forEach(node => {
+      const id = node.id
+      const link = node.link
+      const title = node.title
+      const path = link
       createPage({
         path,
-        component: require.resolve('./src/templates/project.js'),
-        context: {id}
+        component: require.resolve('./src/templates/surgeryType.js'),
+        context: { id, title: title.trim() }
+      })
+    })
+}
+
+async function createPhotoPages (graphql, actions) {
+  const { createPage } = actions
+  const result = await graphql(`
+    {
+      allSanityPhotoCategory {
+        nodes {
+          link
+          title
+          id
+        }
+      }
+    }
+  `)
+
+  if (result.errors) throw result.errors
+
+  const photoNodes = (result.data.allSanityPhotoCategory || {}).nodes || []
+
+  photoNodes
+    .forEach(node => {
+      const id = node.id
+      const link = node.link
+      const title = node.title
+      const path = link
+      createPage({
+        path,
+        component: require.resolve('./src/templates/photoType.js'),
+        context: { id, title: title.trim() }
       })
     })
 }
 
 exports.createPages = async ({graphql, actions}) => {
-  await createProjectPages(graphql, actions)
+  await createSurgeryPages(graphql, actions)
+  await createPhotoPages(graphql, actions)
 }

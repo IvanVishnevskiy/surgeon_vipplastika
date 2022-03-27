@@ -18,16 +18,16 @@ export default {
                 'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
               sites: [
                 {
-                  buildHookId: '<#<deployments.studio.providerInfo.buildHookId>#>',
+                  buildHookId: '5cc04d5199df1802277a6e91',
                   title: 'Sanity Studio',
-                  name: '<#<deployments.studio.providerInfo.siteName>#>',
-                  apiId: '<#<deployments.studio.providerInfo.siteId>#>'
+                  name: '',
+                  apiId: 'b3b7bb87-000f-42a3-9ed3-83358be97dde'
                 },
                 {
-                  buildHookId: '<#<deployments.web.providerInfo.buildHookId>#>',
+                  buildHookId: '5caf2962008b0b042f8df19a',
                   title: 'Portfolio Website',
-                  name: '<#<deployments.web.providerInfo.siteName>#>',
-                  apiId: '<#<deployments.web.providerInfo.siteId>#>'
+                  name: '',
+                  apiId: '7e740745-2e2e-4427-be81-aded75334337'
                 }
               ]
             }
@@ -36,12 +36,12 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'https://github.com/<#<repository.owner>#>/<#<repository.name>#>',
+            value: 'https://github.com/mariuslundgard/dev-sanity-gatsby-portfolio',
             category: 'Code'
           },
           {
             title: 'Frontend',
-            value: '<#<deployments.web.url>#>',
+            value: 'https://sanity-gatsby-blog-web-skupqnos.netlify.com/',
             category: 'apps'
           }
         ]
@@ -50,7 +50,7 @@ export default {
     {name: 'project-users', layout: {height: 'auto'}},
     {
       name: 'document-list',
-      options: {title: 'Recent projects', order: '_createdAt desc', types: ['sampleProject']},
+      options: {},
       layout: {width: 'medium'}
     }
   ]

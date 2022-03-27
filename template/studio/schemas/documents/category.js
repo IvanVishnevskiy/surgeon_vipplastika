@@ -1,17 +1,12 @@
 export default {
-  name: 'category',
+  name: 'surgeryCategory',
   type: 'document',
-  title: 'Category',
+  title: 'Вид операции',
   fields: [
     {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Название'
     },
-    {
-      name: 'description',
-      type: 'text',
-      title: 'Description'
-    }
   ]
 }

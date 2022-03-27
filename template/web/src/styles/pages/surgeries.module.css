@@ -1,0 +1,7 @@
+.heading {
+    display: flex;
+    flex-direction: column;
+}
+.heading h2 {
+    align-self: flex-start;
+}

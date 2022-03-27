@@ -1,28 +1,128 @@
 @import '../styles/custom-media.css';
 @import '../styles/custom-properties.css';
 
-.content {
-  background: var(--color-white);
-  min-height: calc(100% - 73px - 120px);
 
-  @media (--media-min-small) {
-    min-height: calc(100% - 88px - 150px);
-  }
+
+.content {
+
 }
 
 .footer {
-  border-top: 1px solid var(--color-very-light-gray);
+  background-color: #BAA7E2;
+  padding: 200px 20px 20px 20px;
+  box-sizing: border-box;
+}
 
-  @nest & a {
-    color: inherit;
-    text-decoration: none;
+.footerContents {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  width: 100%;
+  border-radius: 10px;
+}
 
-    @media (hover: hover) {
-      @nest &:hover {
-        color: var(--color-accent);
-      }
-    }
-  }
+.footerContents > form, .footerContents > div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 600px;
+  box-sizing: border-box;
+  padding: 34px;
+}
+
+.footer h2 {
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.contacts {
+  background: linear-gradient(121.57deg, rgba(223, 35, 110, 0.8) 8.82%, rgba(116, 8, 143, 0.8) 98.58%);
+  border-radius: 0 10px 10px 0;
+  position: relative;
+}
+
+.form {
+  position: relative;
+  border-radius: 10px 0px 0px 10px;
+  overflow: hidden;
+}
+
+.formBackgroundImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.formBackgroundColor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(192, 182, 250, 0.8);
+  z-index: 1;
+}
+
+.form * {
+  z-index: 2;
+}
+
+.form input, .form textarea {
+  width: 75%;
+  min-width: 280px;
+  background: none;
+  border: none;
+  margin-top: 35px;
+  font-size: 18px;
+  position: relative;
+  padding-left: 14px;
+  outline: none;
+}
+
+.form textarea {
+  font-size: 18px;
+  border: solid 2px #BB368E;
+  border-radius: 20px;
+  min-height: 160px;
+  resize: none;
+  padding: 14px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.form textarea:focus {
+  border: solid 2px #8A299D;
+}
+
+.form label {
+  position: relative;
+  color: #000;
+  font-family: 'Ubuntu', sans-serif;
+  z-index: 10;
+  width: 100%;
+}
+
+.form label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(100% + 3px);
+  height: 2px;
+  background-image: var(--gradient);
+  width: 100%;
+}
+
+form label:last-of-type::after {
+  display: none;
+}
+
+.button {
+  position: absolute;
+  left: 34px;
+  bottom: 34px;
 }
 
 .footerWrapper {
@@ -45,4 +145,63 @@
   text-align: center;
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
+}
+
+.contactsList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 115px;
+  position: relative;
+  z-index: 10;
+}
+
+.contact {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact:nth-child(2) {
+  margin-left: 14px;
+  margin-right: 14px;
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contactIcon {
+  height: 70px;
+  padding-bottom: 14px;
+}
+
+.telegram {
+  display: flex;
+  align-items: center;
+}
+
+.telegramIcon {
+  max-width: 75px;
+  margin-right: 14px;
+}
+
+.decorLeft, .decorRight {
+  position: absolute;
+}
+
+.decorLeft {
+  left: 0;
+  top: 0;
+  width: 40%;
+}
+
+.decorRight {
+  right: 0;
+  bottom: 0;
+  width: 40%;
 }

@@ -6,6 +6,19 @@ const query = graphql`
   query SiteTitleQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
+      surgeonName
+      logo {
+        alt
+        asset {
+          gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+        }
+      }
+      instagramIcon {
+        asset {
+          gatsbyImageData
+        }
+        alt
+      }
     }
   }
 `;
@@ -27,11 +40,12 @@ function LayoutContainer(props) {
             'Missing "Site settings". Open the studio at http://localhost:3333 and add "Site settings" data'
           );
         }
+        console.log(data)
         return (
           <Layout
             {...props}
             showNav={showNav}
-            siteTitle={data.site.title}
+            data={data.site}
             onHideNav={handleHideNav}
             onShowNav={handleShowNav}
           />

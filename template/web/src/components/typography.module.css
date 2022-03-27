@@ -1,5 +1,35 @@
 @import '../styles/custom-media.css';
 
+@font-face {
+  font-family: "Fira Sans";
+  src: url("../fonts/Fira_Sans/FiraSans-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Fira Sans";
+  src: url("../fonts/Fira_Sans/FiraSans-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu/Ubuntu-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu/Ubuntu-Bold.ttf");
+  font-weight: 700;
+}
+
 :root {
   --base-unit: 17;
 

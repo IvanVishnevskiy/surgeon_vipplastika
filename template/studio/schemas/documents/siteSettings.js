@@ -12,30 +12,38 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Заголовок сайта'
+    },
+    {
+      name: 'surgeonName',
+      type: 'string',
+      title: 'Имя'
+    },
+    {
+      name: 'logo',
+      type: 'figure',
+      title: 'Логотип'
+    },
+    {
+      name: 'instagramIcon',
+      type: 'figure',
+      title: 'Иконка инсты'
     },
     {
       name: 'description',
       type: 'text',
       title: 'Description',
-      description: 'Describe your portfolio for search engines and social media.'
+      description: 'Описание для SEO'
     },
     {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',
-      description: 'Add keywords that describes your portfolio.',
+      description: 'Ключевые слова для SEO',
       of: [{type: 'string'}],
       options: {
         layout: 'tags'
       }
-    },
-    {
-      name: 'author',
-      type: 'reference',
-      description: 'Publish an author and set a reference to them here.',
-      title: 'Author',
-      to: [{type: 'person'}]
     }
   ]
 }

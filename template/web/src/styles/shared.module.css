@@ -1,0 +1,22 @@
+.sectionTitle {
+  text-transform: uppercase;
+  font-size: 34px;
+  letter-spacing: 5px;
+  background-image: var(--gradient);
+  padding: 3px 24px 3px 130px;
+  display: inline-block;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  position: relative;
+  display: block;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 60%;
+  top: calc(100% + 4px);
+  left: 0;
+  background-color: #fff;
+}

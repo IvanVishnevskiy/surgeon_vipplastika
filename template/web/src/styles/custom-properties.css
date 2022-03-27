@@ -1,5 +1,4 @@
 :root {
-  --font-family-sans: -apple-system, BlinkMacSystemFont, sans-serif;
 
   --color-black: #202123;
   --color-dark-gray: #32373e;
@@ -8,6 +7,14 @@
   --color-very-light-gray: #e7ebed;
   --color-white: #fff;
   --color-accent: #156dff;
+
+  --padding: 150px;
+  --paddingall: 0 150px;
+
+
+  --color-pink: #82038C;
+  --color-red: #FB2C62;
+  --gradient: linear-gradient(90deg, var(--color-red), var(--color-pink));
 
   /* Typography */
   --unit: 16;

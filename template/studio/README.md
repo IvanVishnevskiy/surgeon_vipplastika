@@ -1,1 +1,1 @@
-# <#< repository.name >#>-studio
+# dev-sanity-gatsby-portfolio-studio

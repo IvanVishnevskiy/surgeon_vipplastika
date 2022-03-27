@@ -1,0 +1,143 @@
+/* @import '../styles/custom-properties.css'; */
+@import '../custom-properties.css';
+
+
+.promo {
+  box-sizing: border-box;
+  background: radial-gradient(68.06% 250.5% at 61.93% 45.5%, #EAEBFF 0%, #A1A7FF 12.86%, #1862F0 30.56%, #00138B 53.46%, rgba(0, 0, 0, 0) 100%), #00002E;
+  position: relative;
+}
+
+.padding {
+  padding: var(--paddingall)
+}
+
+.bluetext {
+  color: #00F0FF;
+  text-transform: uppercase;
+  padding-top: 50px;
+  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.buttons {
+  margin-bottom: 90px;
+}
+
+.buttons button:first-child {
+  margin-right: 40px;
+}
+
+.desc {
+  max-width: 768px;
+  margin-bottom: 26px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.name {
+  width: 0;
+  text-transform: uppercase;
+  font-size: 76px;
+  line-height: 88px;
+  margin-bottom: 36px;
+  letter-spacing: 2px;
+}
+
+.numbers {
+  display: flex;
+  padding: calc(var(--padding) * 2);
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.numbersDecor {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.numberPart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.numberPart h3 {
+  font-size: 64px;
+}
+
+.decor {
+  position: absolute;
+  transform: rotate(90deg) translate(-60px, 66%);
+  font-size: 76px;
+  line-height: 90px;
+  width: 0;
+  right: 0;
+  top: 0;
+  text-transform: uppercase;
+  mix-blend-mode: soft-light;
+  letter-spacing: 10px;
+  opacity: .3;
+}
+
+.reviews {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 37px;
+  overflow: visible;
+  position: relative;
+}
+
+.reviewsBackground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.reviewsBackgroundStaticImage {
+  width: 100%;
+  height: auto;
+}
+
+.swiper {
+  min-height: 376px;
+  padding: var(--paddingall) !important;
+  padding-bottom: 55px !important;
+  box-sizing: border-box;
+}
+
+.models {
+  padding-top: 37px;
+  background-color: #BAA7E2;
+  user-select: none;
+}
+
+.slidingSection {
+  position: relative;
+  transition: transform 1s ease;
+  transform: translateY(-680px);
+  background-color: #0E0519;
+}
+
+.slidingSectionOpen {
+  transform: translateY(0);
+}
+
+.surgeriesFooter {
+  display: flex;
+  flex-direction: column;
+}
+
+.surgeriesFooter a {
+  align-self: center;
+  display: block;
+  position: relative;
+}
+
+.surgeriesFooter h2 {
+  align-self: flex-start;
+}

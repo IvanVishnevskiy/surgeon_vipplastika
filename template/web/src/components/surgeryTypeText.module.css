@@ -1,0 +1,33 @@
+@import '../styles/custom-media.css';
+@import '../styles/custom-properties.css';
+
+.main {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: #0E0519;
+    padding-right: var(--padding);
+    padding-left: var(--padding);
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
+    transform: translateY(200px);
+    transition: all .3s ease;
+    opacity: 0;
+    pointer-events: none;
+    overflow: auto;
+}
+
+.main.opened {
+    transform: none;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.main img {
+    width: 40px;
+    margin-bottom: 37px;
+    cursor: pointer;
+}
