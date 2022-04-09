@@ -1,0 +1,6 @@
+.main {
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+    padding-bottom: 54px;
+    box-sizing: border-box;
+}

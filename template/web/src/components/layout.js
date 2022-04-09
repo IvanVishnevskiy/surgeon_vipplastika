@@ -1,15 +1,13 @@
 import React from "react";
 import Header from "./header";
-
-import "../styles/layout.css";
-import * as styles from "./layout.module.css";
-
 import { StaticImage } from "gatsby-plugin-image";
 
-const Layout = ({ children, onHideNav, onShowNav, showNav, data }) => (
+import * as styles from "./layout.module.css";
+
+const Layout = ({ children, data }) => (
   <>
-    <Header data={data} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
-    <div className={styles.content}>{children}</div>
+    <Header data={data} />
+    <div>{children}</div>
     <footer className={styles.footer}>
       <div className={styles.footerContents}>
         <form className={styles.form}>

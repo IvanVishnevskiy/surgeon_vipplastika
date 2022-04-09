@@ -1,10 +1,8 @@
 import React from "react";
-import { graphql } from "gatsby";
-import Container from "../components/container";
-import GraphQLErrorList from "../components/graphql-error-list";
-import Photo from "../components/photo";
-import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import SEO from "../components/seo";
+import { graphql } from "gatsby";
+import Photo from "../components/photo";
 
 export const query = graphql`
   query photoTypeTemplateQuery($id: String, $title: String) {
@@ -41,12 +39,6 @@ const photoType = props => {
     <Layout>
       {errors && <SEO title="GraphQL Error" />}
       {<SEO title={category.title || "Untitled"} />}
-
-      {errors && (
-        <Container>
-          <GraphQLErrorList errors={errors} />
-        </Container>
-      )}
       {<Photo {...passProps} />}
     </Layout>
   );

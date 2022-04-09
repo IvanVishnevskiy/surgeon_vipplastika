@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import React from "react";
 import { StaticImage } from 'gatsby-plugin-image'
 
@@ -8,7 +7,7 @@ const Review = ({ name, messages, stars }) => {
   const starPath = './icon/star.svg'
   const halfStarPath = './icon/halfStar.svg'
   return <div className={styles.main}>
-      <div>
+      <div style={{ width: '100%' }}>
         <header>
             <h2 className={styles.name}>
                 { name }
@@ -26,11 +25,10 @@ const Review = ({ name, messages, stars }) => {
               }
             </span>
         </header>
-        <div className={styles.messages}>
+        <div>
           { messages.map(msg => <div key={msg} className={styles.message}>{ msg }</div>) }
         </div>
       </div>
-      <button>Подробнее</button>
   </div>
 }
 

@@ -13,11 +13,11 @@
 	position: relative;
 	cursor: pointer;
 	transform-style: preserve-3d;
-	height: 300px;
+	min-height: 300px;
 	backdrop-filter: blur(3px);
 }
 .decor1, .decor2 {
-	position: absolute;
+	position: absolute !important;
 	opacity: 0;
 	transition: opacity .2s ease;
 	pointer-events: none;
@@ -156,3 +156,28 @@
 	transform: translateY(-50%);
 	max-height: 250px;
 }
+
+
+
+@media screen and (max-width: 1270px) {
+  /* larwa for notvonzki on twitch.tv */
+  .link {
+	width: calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+	.main h3 {
+		font-size: 18px
+	}
+	.main p {
+		font-size: 13px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	/* larwa for notvonzki on twitch.tv */
+	.link {
+	  width: 100%;
+	}
+  }

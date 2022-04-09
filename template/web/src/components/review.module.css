@@ -5,16 +5,18 @@
     justify-content: space-between;
     /* max-width: 414px; */
     /* width: 100%; */
-    min-height: 376px;
+    min-height: 250px;
     box-shadow: 2px 2px 0px 0 rgba(255, 255 , 255, .25);
     background-color: rgba(61, 32, 96, .8);
     border-radius: 9px;
     padding: 25px;
     box-sizing: border-box;
+    user-select: none;
 }
 
 .main header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 }

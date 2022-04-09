@@ -1,21 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from "../lib/helpers";
-import GraphQLErrorList from "../components/graphql-error-list";
-import SEO from "../components/seo";
-import Layout from "../containers/layout";
 
+import Layout from "../containers/layout";
+import SEO from "../components/seo";
 import Surgeries from '../components/surgeries'
+
 import * as sharedStyles from '../styles/shared.module.css'
 import * as styles from '../styles/pages/surgeries.module.css'
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
 
 export const query = graphql`
   query SurgeriesQuery {
@@ -57,21 +48,7 @@ const IndexPage = props => {
   const { data, errors } = props;
   const surgeryTypes = data.surgeryTypes.nodes
 
-  console.log(data)
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
-
   const site = (data || {}).site;
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
-        .filter(filterOutDocsWithoutSlugs)
-        .filter(filterOutDocsPublishedInTheFuture)
-    : [];
 
   if (!site) {
     throw new Error(

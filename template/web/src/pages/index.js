@@ -1,29 +1,19 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from "../lib/helpers";
-import GraphQLErrorList from "../components/graphql-error-list";
-import SEO from "../components/seo";
+
 import Layout from "../containers/layout";
-
+import SEO from "../components/seo";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { graphql, Link } from "gatsby";
+import OnlyBrowser from "../components/onlyBrowser";
 import Surgeries from '../components/surgeries'
-import Review from '../components/review'
-
-import * as styles from "../styles/pages/index.module.css";
-import * as sharedStyles from "../styles/shared.module.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 
+import Review from '../components/review'
 
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
+import * as styles from "../styles/pages/index.module.css";
+import * as sharedStyles from "../styles/shared.module.css";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -72,6 +62,11 @@ export const query = graphql`
         }
       }
     }
+    elena: file(base: {eq: "Elena.png"}) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
   }
   
   
@@ -79,26 +74,13 @@ export const query = graphql`
 `;
 
 const IndexPage = props => {
-  const { data, errors } = props;
+  const { data } = props;
   const surgeryTypes = data.surgeryTypes.nodes
   const reviews = data.reviews.nodes
   const models = data.modelPhotos.nodes
-
-  console.log(data)
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
+  const img = data.elena.childImageSharp.gatsbyImageData
 
   const site = (data || {}).site;
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
-        .filter(filterOutDocsWithoutSlugs)
-        .filter(filterOutDocsPublishedInTheFuture)
-    : [];
 
   if (!site) {
     throw new Error(
@@ -106,17 +88,21 @@ const IndexPage = props => {
     );
   }
 
+  const width = typeof window === 'undefined' ? 1920 : document.body.clientWidth
+
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <section className={styles.promo}>
+        <GatsbyImage image={img} objectFit="contain" alt="Елена, Пластический хирург" className={styles.promoImage} backgroundColor="rgba(255,255,255,.05)" defaultValue="white" />
         <div className={styles.padding}>
           <p className={styles.bluetext}>Пластический хирург</p>
           <h1 className={styles.name}>{site.surgeonName}</h1>
-          <p className={styles.desc}>Кандидат медицинских наук, пластический хирург, научный сотрудник отделения челюстно-лицевой хирургии ГБУЗ МО МОНИКИ им. М.Ф.Владимирского, автор более 60 печатных работ и двух патентов на изобретение. Неоднократный участник международных конференций, симпозиумов по пластической хирургии и косметологии, челюстно-лицевой хирургии, онкологии.</p>
+          <p className={styles.desc}>Пластический хирург; кандидат медицинских наук; старший научный сотрудник отделения челюстно-лицевой хирургии ГБУЗ МО МОНИКИ им. М. Ф. Владимирского; врач-онколог,  челюстно-лицевой хирург медицинского центра  «Клиника кожи»; пластический хирург медицинского центра «Клиника Хартман»; Член Российского общества пластических, реконструктивных и эстетических хирургов и косметологов; член европейской ассоциации черепно-челюстно-лицевых хирургов; автор более 80 печатных работ и 9 патентов на изобретение. 
+Неоднократный участник международных конференций, симпозиумов по пластической хирургии и косметологии, челюстно-лицевой хирургии, онкологии. Стаж работы с 2004 года.</p>
           <div className={styles.buttons}>
             <button className="filled">Записаться</button>
-            <button>Обо мне</button>
+            <Link to="/about"><button>Обо мне</button></Link>
           </div>
         </div>
         <div className={styles.numbersDecor}>
@@ -126,15 +112,15 @@ const IndexPage = props => {
               <p>лет практики</p>
             </div>
             <div className={styles.numberPart}>
-              <h3>2000+</h3>
+              <h3>5000+</h3>
               <p>счастливых клиентов</p>
             </div>
             <div className={styles.numberPart}>
-              <h3>7</h3>
+              <h3>9</h3>
               <p>патентов на изобретение</p>
             </div>
             <div className={styles.numberPart}>
-              <h3>60+</h3>
+              <h3>80+</h3>
               <p>печатных работ</p>
             </div>
           </div>
@@ -147,7 +133,7 @@ const IndexPage = props => {
       <div className={styles.surgeriesFooter}>
         <h2 className={sharedStyles.sectionTitle}>Операции</h2>
       </div>
-      <Surgeries surgeryTypes={surgeryTypes} id="indexSurgeries" />
+      <Surgeries noBackground={true} surgeryTypes={surgeryTypes} id="indexSurgeries" />
       <div className={styles.surgeriesFooter}>
         <Link className="link-no-decoration" to="/surgeries"><button>Смотреть все</button></Link>
         <h2 className={sharedStyles.sectionTitle}>Отзывы</h2>
@@ -157,7 +143,7 @@ const IndexPage = props => {
           <StaticImage src="../media/BackgroundShift.svg" objectFit="contain" alt="Background transition" className={styles.reviewsBackgroundStaticImage} />
         </div>
         <Swiper
-          slidesPerView={2.9}
+          slidesPerView={ width > 1120 ? 2.9 : width < 720 ? 1 : 2 }
           spaceBetween={70}
           pagination={{
             clickable: true,
@@ -176,7 +162,7 @@ const IndexPage = props => {
       </section>
       <section className={styles.models}>
         <Swiper
-          slidesPerView={2.3}
+          slidesPerView={ width > 690 ? 2.3 : width < 590 ? 1 : 1.5 } // 69? Nice!
           spaceBetween={70}
           pagination={{
             clickable: true,
@@ -186,7 +172,7 @@ const IndexPage = props => {
         >
           {
             models.map(({ photo }, i) => {
-              const { asset, alt } = photo
+              const { asset, alt = "" } = photo
               return <SwiperSlide key={i}>
                   <GatsbyImage image={asset.gatsbyImageData} alt={alt} />
                 </SwiperSlide>

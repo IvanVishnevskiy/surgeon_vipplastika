@@ -1,17 +1,14 @@
-import { Link } from "gatsby";
 import React from "react";
-import Icon from "./icon";
-import { cn } from "../lib/helpers";
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { Link } from "gatsby";
 
 import * as styles from "./header.module.css";
 
-const Header = ({ onHideNav, onShowNav, showNav, siteTitle, data }) => {
-  console.log(data)
+const Header = ({ data }) => {
   return <div className={styles.root}>
     <div className={styles.part}>
       <div>
-        <GatsbyImage objectFit="contain" className={styles.logo} image={data.logo.asset.gatsbyImageData} alt={data.logo.alt} />
+        <GatsbyImage objectFit="contain" className={styles.logo} image={data.logo.asset.gatsbyImageData} alt={data.logo.alt || "Logo"} />
       </div>
       <div>
         <a className={styles.phone} href="tel:+79263951759">+7 (926) 395-17-59</a>

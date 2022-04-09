@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import PortableText from "@sanity/block-content-to-react"
-import SurgeryTypeText from "./surgeryTypeText";
-import Rive, { useRive, useStateMachineInput, Layout, Fit, Alignment } from 'rive-react'
+import { useRive, Layout, Fit, Alignment } from 'rive-react'
 
 import { GatsbyImage } from 'gatsby-plugin-image'
+import SurgeryTypeText from "./surgeryTypeText";
 
 import * as styles from "./surgeryType.module.css"
 import * as sharedStyles from "../styles/shared.module.css";

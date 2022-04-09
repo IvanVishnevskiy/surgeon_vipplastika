@@ -20,3 +20,21 @@
   left: 0;
   background-color: #fff;
 }
+
+.backgroundTransition {
+  position: absolute !important;
+  width: 100%;
+  left: 0;
+  top: 200%;
+}
+
+.transitionMargin {
+  margin-bottom: 350px;
+}
+
+@media screen and (max-width: 500px) {
+  .sectionTitle {
+    font-size: 24px;
+    padding-left: 65px
+  }
+}

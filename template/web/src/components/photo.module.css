@@ -7,6 +7,7 @@
 
 .heading {
     align-self: flex-start;
+    display: flex;
 }
 
 .photos {
@@ -18,7 +19,7 @@
 }
 
 .fullscreenPhoto {
-    position: fixed;
+    position: fixed !important;
     left: 0;
     top: 0;
     right: 0;
@@ -27,7 +28,7 @@
 }
 
 .fullscreenDesc {
-    position: absolute;
+    position: absolute !important;
     bottom: 0;
     left: 0;
     min-height: 75px;
@@ -39,7 +40,7 @@
 }
 
 .exitIcon {
-    position: absolute;
+    position: absolute !important;
     right: 27px;
     top: 27px;
     width: 50px;

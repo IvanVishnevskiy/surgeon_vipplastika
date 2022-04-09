@@ -13,6 +13,7 @@ import mainPagePhotos from './documents/mainPagePhotos'
 import surgeryPhotos from './documents/surgeryPhotos'
 import photoCategory from './documents/photoCategory'
 import categorizedPhoto from './documents/categorizedPhoto'
+import about from './documents/about'
 
 // Object types
 import figure from './objects/figure'
@@ -38,6 +39,7 @@ export default createSchema({
     siteSettings,
     review,
     photoCategory,
-    categorizedPhoto
+    categorizedPhoto,
+    about
   ])
 })

@@ -1,12 +1,3 @@
-@import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
-
-
-
-.content {
-
-}
-
 .footer {
   background-color: #BAA7E2;
   padding: 200px 20px 20px 20px;
@@ -48,7 +39,7 @@
 }
 
 .formBackgroundImage {
-  position: absolute;
+  position: absolute !important;
   left: 0;
   top: 0;
   right: 0;
@@ -72,7 +63,6 @@
 
 .form input, .form textarea {
   width: 75%;
-  min-width: 280px;
   background: none;
   border: none;
   margin-top: 35px;
@@ -204,4 +194,35 @@ form label:last-of-type::after {
   right: 0;
   bottom: 0;
   width: 40%;
+}
+
+.decorLeft, .decorRight {
+  position: absolute !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .footerContents > form, .footerContents > div {
+    width: 100%;
+  }
+  .footerContents {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footerContents p {
+    font-size: 13px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  .contactsList {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact {
+    margin-top: 54px !important;
+  }
+  .contact:nth-child(2) {
+    margin: 0;
+  }
 }

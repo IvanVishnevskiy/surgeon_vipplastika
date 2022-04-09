@@ -5,3 +5,6 @@
  */
 
 // You can delete this file if you're not using it
+import "swiper/css";
+import "swiper/css/pagination";
+import "./src/styles/layout.css";

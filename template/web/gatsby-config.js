@@ -9,6 +9,10 @@ const token = process.env.SANITY_READ_TOKEN
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
+  flags: {
+    DEV_SSR: true
+  },
+  pathPrefix: `/surgeon`,
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
@@ -23,10 +27,24 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'media',
+        path: `${__dirname}/src/media/`,
+      },
+    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-styled-components',
+    {
       resolve: `gatsby-plugin-sharp`,
       options: {
         // Defaults used for gatsbyImageData and StaticImage
-        defaults: {},
+        defaults: {
+          placeholder: 'dominantColor',
+          breakpoints: [750, 1080, 1366, 1920],
+          backgroundColor: 'red'
+        },
         // Set to false to allow builds to continue on image errors
         failOnError: true,
         // deprecated options and their defaults:
@@ -34,15 +52,7 @@ module.exports = {
         forceBase64Format: `webp`, // valid formats: png,jpg,webp
         useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
         stripMetadata: true,
-        defaultQuality: 50,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `media`,
-        path: `${__dirname}/src/media/`,
-        ignore: [`**/\.*`], // ignore files starting with a dot
+        defaultQuality: 75,
       },
     },
   ]

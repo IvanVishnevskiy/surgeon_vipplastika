@@ -1,10 +1,8 @@
 import React from "react";
-import { graphql } from "gatsby";
-import Container from "../components/container";
-import GraphQLErrorList from "../components/graphql-error-list";
-import SurgeryType from "../components/surgeryType";
-import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import SEO from "../components/seo";
+import { graphql } from "gatsby";
+import SurgeryType from "../components/surgeryType";
 
 export const query = graphql`
   query ProjectTemplateQuery($id: String!, $title: String) {
@@ -69,21 +67,14 @@ export const query = graphql`
 `;
 
 const surgeryType = props => {
-  const { data, errors } = props;
+  const { data } = props;
   let surgery = data && data.surgeryType;
   surgery.photos = data.photos
   
   return (
     <Layout>
-      {errors && <SEO title="GraphQL Error" />}
-      {surgery && <SEO title={surgery.title || "Untitled"} />}
-
-      {errors && (
-        <Container>
-          <GraphQLErrorList errors={errors} />
-        </Container>
-      )}
-      {surgery && <SurgeryType {...surgery} />}
+      <SEO title={surgery.title || "Untitled"} />
+      <SurgeryType {...surgery} />
     </Layout>
   );
 };
