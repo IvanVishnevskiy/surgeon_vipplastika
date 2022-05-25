@@ -39,6 +39,11 @@ export default {
         title: 'Full description'
       },
       {
+        name: 'title_en',
+        type: 'text',
+        title: 'Title (en)'
+      },
+      {
         name: 'desc_en',
         type: 'simplePortableText',
         title: 'Short description (en)'

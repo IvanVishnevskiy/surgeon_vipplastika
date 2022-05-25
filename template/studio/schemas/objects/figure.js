@@ -15,10 +15,28 @@ export default {
       }
     },
     {
+      title: 'Caption (en)',
+      name: 'caption_en',
+      type: 'string',
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
       name: 'alt',
       type: 'string',
       title: 'Alternative text',
       validation: Rule => Rule.error('You have to fill out the alternative text.').required(),
+      description: 'Important for SEO and accessiblity.',
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
+      name: 'alt_en',
+      type: 'string',
+      title: 'Alternative text (en)',
+      validation: Rule => Rule.error('You have to fill out the alternative text (en).').required(),
       description: 'Important for SEO and accessiblity.',
       options: {
         isHighlighted: true
