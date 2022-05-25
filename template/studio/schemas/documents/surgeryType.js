@@ -54,9 +54,9 @@ export default {
         title: 'Full description (en)'
       },
       {
-        name: 'link_en',
+        name: 'link',
         type: 'text',
-        title: 'Link path (en)'
+        title: 'Link path'
       }
     ]
   }
