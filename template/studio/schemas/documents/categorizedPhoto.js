@@ -24,6 +24,16 @@ export default {
         type: 'array',
         of: [{type: 'reference', to: {type: 'photoCategory'}}]
       },
+      {
+        name: 'title_en',
+        type: 'string',
+        title: 'Title (en)'
+      },
+      {
+        name: 'desc_en',
+        type: 'string',
+        title: 'Description (en)'
+      },
     ]
   }
   

@@ -11,8 +11,19 @@ export default {
         title: 'Client Name'
       },
       {
+        name: 'name_en',
+        type: 'text',
+        title: 'Client Name (en)'
+      },
+      {
         name: 'reviewMessages',
         title: 'Review Messages',
+        type: 'array',
+        of: [{ type: 'string' }]
+      },
+      {
+        name: 'reviewMessages_en',
+        title: 'Review Messages (en)',
         type: 'array',
         of: [{ type: 'string' }]
       },
@@ -26,11 +37,6 @@ export default {
             return starsWarning
           })
         ]
-      },
-      {
-        name: 'isMore',
-        title: 'Is there more?',
-        type: 'boolean'
       }
     ]
   }

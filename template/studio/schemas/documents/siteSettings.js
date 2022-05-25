@@ -44,6 +44,33 @@ export default {
       options: {
         layout: 'tags'
       }
+    },
+    {
+      name: 'title_en',
+      type: 'string',
+      title: 'Заголовок сайта (en)'
+    },
+    {
+      name: 'surgeonName_en',
+      type: 'string',
+      title: 'Имя (en)'
+    },
+    {
+      name: 'description_en',
+      type: 'text',
+      title: 'Description (en)',
+      description: 'Описание для SEO (en)'
+    },
+    {
+      name: 'keywords_en',
+      type: 'array',
+      title: 'Keywords (en)',
+      description: 'Ключевые слова для SEO (en)',
+      of: [{type: 'string'}],
+      options: {
+        layout: 'tags'
+      }
     }
   ]
+  
 }

@@ -39,9 +39,24 @@ export default {
         title: 'Full description'
       },
       {
-        name: 'link',
+        name: 'desc_en',
+        type: 'simplePortableText',
+        title: 'Short description (en)'
+      },
+      {
+        name: 'pageDesc_en',
+        type: 'simplePortableText',
+        title: 'Description displayed on the page (en)'
+      },
+      {
+        name: 'fullDesc_en',
+        type: 'simplePortableText',
+        title: 'Full description (en)'
+      },
+      {
+        name: 'link_en',
         type: 'text',
-        title: 'Link path'
+        title: 'Link path (en)'
       }
     ]
   }

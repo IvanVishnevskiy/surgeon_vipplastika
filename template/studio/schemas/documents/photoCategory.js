@@ -18,11 +18,22 @@ export default {
         type: 'figure',
         title: 'background'
       },
+      // TODO: link should only contain name, possibly take title instead
       {
         name: 'link',
         type: 'string',
         title: 'Link'
-      }
+      },
+      {
+        name: 'title_en',
+        type: 'string',
+        title: 'Title (en)'
+      },
+      {
+        name: 'desc_en',
+        type: 'string',
+        title: 'Description (en)'
+      },
     ]
   }
   

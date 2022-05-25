@@ -8,5 +8,10 @@ export default {
       type: 'string',
       title: 'Название'
     },
+    {
+      name: 'title_en',
+      type: 'string',
+      title: 'Название (en)'
+    },
   ]
 }
