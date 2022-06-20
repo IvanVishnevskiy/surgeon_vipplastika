@@ -1,17 +1,33 @@
 import React from "react"
+import IndexPageTemplate from "../../templates/pages"
 import { graphql } from "gatsby"
 
-import SurgeriesPageTemplate from "../templates/pages/surgeries"
-
 export const query = graphql`
-  query SurgeriesQuery {
+  query IndexPageQueryEn {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       surgeonName
       title
       description
       keywords
     },
-    surgeryTypes: allSanitySurgeryType {
+    reviews: allSanityReview {
+      nodes {
+        name
+        reviewMessages
+        reviewStars
+      }
+    }
+    modelPhotos: allSanityMainPagePhoto {
+      nodes {
+        photo {
+          asset {
+            gatsbyImageData
+          }
+          alt
+        }
+      }
+    }
+    surgeryTypes: allSanitySurgeryType(filter: {}, limit: 6) {
       nodes {
         title
         Icon {
@@ -33,13 +49,19 @@ export const query = graphql`
         }
       }
     }
-  }
+    elena: file(base: {eq: "Elena.png"}) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+  } 
 `
 
 const IndexPage = props => {
-  const { data } = props
+  const { data } = props;
+
   return (
-    <SurgeriesPageTemplate data={data} />
+    <IndexPageTemplate data={data} isEn={true} />
   )
 }
 

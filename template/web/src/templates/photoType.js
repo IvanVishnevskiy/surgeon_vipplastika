@@ -8,7 +8,9 @@ export const query = graphql`
   query photoTypeTemplateQuery($id: String, $title: String) {
     category: sanityPhotoCategory(id: { eq: $id }) {
       title
+      title_en
       desc
+      desc_en
     }
     photos: allSanityCategorizedPhotos(
       filter: {categories: {elemMatch: { title: { eq: $title } }}}
@@ -16,6 +18,7 @@ export const query = graphql`
       nodes {
         id
         title
+        title_en
         desc
         photo {
           asset {
@@ -24,6 +27,7 @@ export const query = graphql`
             )
           }
           alt
+          alt_en
         }
       }
     }
@@ -35,8 +39,10 @@ const photoType = props => {
   const { category, photos } = data
   const passProps = { ...category, photos }
 
+  const isEn = window.location.href.includes('/en/')
+
   return (
-    <Layout>
+    <Layout isEn={isEn}>
       {errors && <SEO title="GraphQL Error" />}
       {<SEO title={category.title || "Untitled"} />}
       {<Photo {...passProps} />}

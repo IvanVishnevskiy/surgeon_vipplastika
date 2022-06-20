@@ -8,8 +8,8 @@ import * as styles from "./card.module.css"
 
 
 
-const Card = ({ src, riveSrc, title, desc, link }) => {
-  console.log(riveSrc)
+const Card = ({ riveSrc, title, desc, link, isEn }) => {
+  console.log(title)
   let RiveComponent, rive, onClickInput
 
   const stateMachineName = 'Animation State'
@@ -34,7 +34,7 @@ const Card = ({ src, riveSrc, title, desc, link }) => {
     )
   }
   return (
-      <Link to={link} className={styles.link + ' link-no-decoration'}>
+      <Link to={(isEn ? '/en' : '') + link} className={styles.link + ' link-no-decoration'}>
         <div 
         className={styles.main}
         onMouseEnter={() => onClickInput ? onClickInput.fire() : ''}

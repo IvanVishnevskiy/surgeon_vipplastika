@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 
 import * as styles from "./review.module.css";
 
-const Review = ({ name, messages, stars }) => {
+const Review = ({ name = '', messages = [], stars = 5 }) => {
   const starPath = './icon/star.svg'
   const halfStarPath = './icon/halfStar.svg'
   return <div className={styles.main}>

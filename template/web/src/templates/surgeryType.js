@@ -47,6 +47,9 @@ export const query = graphql`
       _rawPageDesc
       _rawFullDesc
       _rawDesc
+      _rawPageDescEn
+      _rawFullDescEn
+      _rawDescEn
     }
     photos: allSanitySurgeryPhotos(
       filter: {categories: {elemMatch: { title: { eq: $title } }}}
@@ -60,6 +63,7 @@ export const query = graphql`
             )
           }
           alt
+          alt_en
         }
       }
     }
@@ -70,9 +74,9 @@ const surgeryType = props => {
   const { data } = props;
   let surgery = data && data.surgeryType;
   surgery.photos = data.photos
-  
+  const isEn = window.location.href.includes('/en/')
   return (
-    <Layout>
+    <Layout isEn={isEn}>
       <SEO title={surgery.title || "Untitled"} />
       <SurgeryType {...surgery} />
     </Layout>

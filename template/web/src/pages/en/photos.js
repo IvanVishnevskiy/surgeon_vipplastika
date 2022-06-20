@@ -1,46 +1,37 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import SurgeriesPageTemplate from "../templates/pages/surgeries"
+import PhotosPageTemplate from "../../templates/pages/photos"
 
 export const query = graphql`
-  query SurgeriesQuery {
+  query photoQueryEn {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       surgeonName
       title
       description
       keywords
     },
-    surgeryTypes: allSanitySurgeryType {
+    photoCategories: allSanityPhotoCategory {
       nodes {
+        desc
         title
-        Icon {
+        background {
+          alt
           asset {
             gatsbyImageData
           }
         }
-        riveAnimation {
-          asset {
-            url
-          }
-        }
-        _id
         link
-        desc {
-          children {
-            text
-          }
-        }
+        _id
       }
     }
-  }
+  }  
 `
 
 const IndexPage = props => {
   const { data } = props
-  return (
-    <SurgeriesPageTemplate data={data} />
-  )
-}
+
+  return <PhotosPageTemplate isEn={true} data={data} />
+};
 
 export default IndexPage

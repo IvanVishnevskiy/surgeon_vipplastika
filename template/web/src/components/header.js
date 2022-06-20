@@ -4,7 +4,8 @@ import { Link } from "gatsby";
 
 import * as styles from "./header.module.css";
 
-const Header = ({ data }) => {
+const Header = ({ data, isEn }) => {
+  const prefix = isEn ? '/en' : ''
   return <div className={styles.root}>
     <div className={styles.part}>
       <div>
@@ -16,16 +17,16 @@ const Header = ({ data }) => {
     </div>
     <div className={styles.part}>
       <ul className={styles.part + ' ' + styles.menu}>
-        <li><Link to="/">Главная</Link></li>
-        <li><Link to="/surgeries">Операции</Link></li>
-        <li><Link to="/photos">Фото</Link></li>
-        <li><Link to="/contacts">Контакты</Link></li>
+        <li><Link to={isEn ? '/en' : '/'}>{ isEn ? 'Home' : 'Главная' }</Link></li>
+        <li><Link to={ prefix + '/surgeries'}>{ isEn ? 'Surgeries' : 'Операции' }</Link></li>
+        <li><Link to={ prefix + '/photos' }>{ isEn ? 'Photos' : 'Фото' }</Link></li>
+        <li><Link to={ prefix + '/contacts' }>{ isEn ? 'Contacts' : 'Контакты' }</Link></li>
       </ul>
       <div className={styles.part + ' ' + styles.rightBottom}>
         <a href="https://instagram.com" className="link-no-decoration" rel="noreferrer noopener" target="_blank">
           {/* <GatsbyImage image={data.instagramIcon.asset.gatsbyImageData} alt={data.instagramIcon.alt} /> */}
         </a>
-        <button className="filled">Записаться</button>
+        <button className="filled">{ isEn ? 'Make an appointment' : 'Записаться' }</button>
       </div>
     </div>
   </div>
